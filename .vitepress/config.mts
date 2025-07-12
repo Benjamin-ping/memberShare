@@ -1,4 +1,14 @@
 import { defineConfig } from 'vitepress'
+import { writeFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+import { SitemapStream, streamToPromise } from 'sitemap'
+
+
+// 用来存放所有页面的链接
+const links: { url: string, lastmod?: number }[] = []
+
+// 你的域名，【请务必替换成你自己的真实域名！】
+const hostname = 'https://jctest.blog/'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -37,5 +47,25 @@ export default defineConfig({
   
     ],
 	outlineTitle: '导读'
-  }
+  },
+  // 1. 在构建过程中，收集所有页面的链接
+  transformHtml: (_, id, { pageData }) => {
+    // 只处理 HTML 文件，并排除 404 页面
+    if (id.endsWith('.html') && !id.endsWith('404.html')) {
+      links.push({
+        url: pageData.relativePath.replace(/((^|\/)index)?\.md$/, '$2'),
+        lastmod: pageData.lastUpdated
+      })
+    }
+  },
+  // 2. 在构建结束时，生成 sitemap.xml 文件
+  buildEnd: async ({ outDir }) => {
+    const sitemapStream = new SitemapStream({ hostname })
+    const sitemap = await streamToPromise(sitemapStream.end(links))
+    
+    // 将 sitemap.xml 文件写入到输出目录
+    writeFileSync(resolve(outDir, 'sitemap.xml'), sitemap.toString())
+    
+    console.log('✅ Sitemap generated!')
+  },
 })

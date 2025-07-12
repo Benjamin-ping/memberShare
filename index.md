@@ -6,6 +6,11 @@ hero:
   name: "合租拼车第一站"
   text: ""
   tagline: 想看Netflix、用Office 365，又觉得官方订阅<span style="color:red">太贵</span>？<br>想找人“拼车”，又怕上当<span style="color:red">“翻车”</span>？<br>别担心，你来对地方了！<br>建这个站就是为了帮你把水搅浑的合租平台看个清楚。<br>所有推荐都基于我的<span style="color:red">真实</span>使用体验。<br>帮你找到<span style="color:red">最靠谱</span>的“车”，安安心心出发！
+  image:
+  src: /hero-image.png
+  alt: 合租拼车第一站的领航员图标
+  width: 400
+  height: 400
   actions:
     - theme: brand
       text: 上车必读
