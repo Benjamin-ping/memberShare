@@ -1,0 +1,41 @@
+import { defineConfig } from 'vitepress'
+
+// https://vitepress.dev/reference/site-config
+export default defineConfig({
+  title: "合租拼车第一站",
+  description: "想看Netflix、用Office 365，又觉得官方订阅太贵？想找人“拼车”，又怕上当“翻车”？别担心，你来对地方了！建这个站就是为了帮你把水搅浑的合租平台看个清楚。所有推荐都基于我的真实使用体验，帮你找到最靠谱的“车”，安安心心出发！",
+  themeConfig: {
+    // https://vitepress.dev/reference/default-theme-config
+    nav: [
+      { text: '主页', link: '/' },
+      { text: '博客', link: '/bidu-tuijian' }
+    ],
+
+    sidebar: [
+      {
+        text: '上车必读',
+        items: [
+          { text: '【2025主流合租平台终极测评】', link: '/bidu-tuijian' },
+          
+        ]
+      },
+	  {
+        text: '发车攻略',
+        items: [
+          
+          { text: 'Spotify入门完全攻略', link: '/gongnue-Spotifyjiqiao' }
+        ]
+      }
+    ],
+
+    socialLinks: [
+       {
+          icon: {svg: '<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M41.4193 7.30899C41.4193 7.30899 45.3046 5.79399 44.9808 9.47328C44.8729 10.9883 43.9016 16.2908 43.1461 22.0262L40.5559 39.0159C40.5559 39.0159 40.3401 41.5048 38.3974 41.9377C36.4547 42.3705 33.5408 40.4227 33.0011 39.9898C32.5694 39.6652 24.9068 34.7955 22.2086 32.4148C21.4531 31.7655 20.5897 30.4669 22.3165 28.9519L33.6487 18.1305C34.9438 16.8319 36.2389 13.8019 30.8426 17.4812L15.7331 27.7616C15.7331 27.7616 14.0063 28.8437 10.7686 27.8698L3.75342 25.7055C3.75342 25.7055 1.16321 24.0823 5.58815 22.459C16.3807 17.3729 29.6555 12.1786 41.4193 7.30899Z"></path> </g></svg>'},
+          link: 'https://t.me/mahu_lv'
+     },
+   // { icon: { svg: '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M20 18h-2V9.25L12 13L6 9.25V18H4V6h1.2l6.8 4.25L18.8 6H20m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>' }, link: 'linksys360gna@gmail.com' },
+  
+    ],
+	outlineTitle: '导读'
+  }
+})
