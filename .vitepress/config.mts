@@ -12,10 +12,33 @@ const hostname = 'https://jctest.blog/'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "合租拼车第一站",
+  title: "合影",
   description: "想看Netflix、用Office 365，又觉得官方订阅太贵？想找人“拼车”，又怕上当“翻车”？别担心，你来对地方了！建这个站就是为了帮你把水搅浑的合租平台看个清楚。所有推荐都基于我的真实使用体验，帮你找到最靠谱的“车”，安安心心出发！",
+  
+   head: [
+    // 1. 设置网站的 Favicon (显示在浏览器标签页和搜索结果旁)
+    ['link', { rel: 'icon', href: '/logo.png' }],
+
+    // 2. 添加 Organization Schema.org 结构化数据，告诉谷歌你的官方 Logo
+    [
+      'script',
+      { 
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          'name': '合影', // 你的组织/网站名称
+          'url': 'https://jctest.blog', // 你的网站完整 URL
+          'logo': 'https://jctest.blog/logo.png' // 你的 Logo 完整 URL
+        })
+      }
+    ]
+  ],
+  
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+	 
+    logo: '/logo.png', // 最简单的方法
     nav: [
       { text: '主页', link: '/' },
       { text: '博客', link: '/bidu-tuijian' }
@@ -26,7 +49,9 @@ export default defineConfig({
         text: '上车必读',
         items: [
           { text: '【2025主流合租平台终极测评】', link: '/bidu-tuijian' },
-          
+          { text: '蜜糖商店到底靠不靠谱？', link: '/mets-shop-review' },
+		  { text: '奈飞小铺值得上吗？', link: '/naifei' },
+		  { text: '银河录像局深度评测', link: '/yinheluxiangju' },
         ]
       },
 	  {
