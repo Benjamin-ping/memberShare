@@ -17,10 +17,7 @@ echo -e "\n${GREEN}>>> 正在提交更改...${NC}"
 # 注意：这里的提交信息是固定的
 git commit -m "feat: add Bing verification and update content"
 
-# 4. 推送到 GitHub 的主分支
-# 注意：你的主分支可能是 'main' 或 'master'。请根据你的实际情况修改。
-BRANCH_NAME="main"
-echo "⬆️  步骤 3/3: 正在推送到 GitHub 的 '$BRANCH_NAME' 分支..."
-git push origin $BRANCH_NAME
+echo -e "\n${GREEN}>>> 正在强制推送到 origin/main...${NC}"
+git push -f origin main
 
-echo "✅ 成功！所有更改已推送到 GitHub。"
+echo -e "\n${GREEN}>>> 操作完成！${NC}"
