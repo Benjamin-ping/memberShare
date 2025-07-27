@@ -67,6 +67,7 @@ export default defineConfig({
 	  '/dianshiju/': [
 		{ text: '神剧推荐指南', items: [
 			{ text: 'Netflix 10部不容错过的神作', link: '/dianshiju/netflix-top-10.md' },
+			{ text: '一个账号看遍全球！如何解锁Netflix各国限定神剧？', link: '/dianshiju/netflixkanjutuijian.md' },
 		]}
 	  ]
 	}, 
