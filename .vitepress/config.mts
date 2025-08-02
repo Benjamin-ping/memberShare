@@ -5,15 +5,17 @@ import { writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { SitemapStream, streamToPromise } from 'sitemap'
+import { Readable } from 'node:stream'
 
 const links: { url: string, lastmod?: number }[] = []
-const hostname = 'https://jctest.blog/'
+const hostname = 'https://jctest.blog'
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  // ... 其他所有配置保持不变 ...
   title: "合影",
   description: "想看Netflix、用Office 365，又觉得官方订阅太贵？想找人“拼车”，又怕上当“翻车”？别担心，你来对地方了！建这个站就是为了帮你把水搅浑的合租平台看个清楚。所有推荐都基于我的真实使用体验，帮你找到最靠谱的“车”，安安心心出发！",
-  
+  cleanUrls: true,
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }],
     ['script', { 
@@ -27,10 +29,6 @@ export default defineConfig({
         })
     }]
   ],
-  
-  // =====================【THE FINAL SOLUTION】======================
-  // 我们不再使用 themeDir，而是直接配置 Vite 的 resolve.alias
-  // 这会强制 Vite 将 `@theme` 解析到我们指定的文件夹，绕过所有 VitePress 的内部逻辑。
   vite: {
     resolve: {
       alias: {
@@ -38,14 +36,12 @@ export default defineConfig({
       }
     }
   },
-  // ================================================================
-  
   themeConfig: {
     logo: '/logo.png',
     nav: [
       { text: '主页', link: '/' },
       { text: '博客', link: '/bidu-tuijian' },
-	  { text: '神剧推荐', link: '/dianshiju/' },
+	    { text: '神剧推荐', link: '/dianshiju/' },
     ],
     sidebar: {
 	  '/': [
@@ -66,8 +62,8 @@ export default defineConfig({
 	  ],
 	  '/dianshiju/': [
 		{ text: '神剧推荐指南', items: [
-			{ text: 'Netflix 10部不容错过的神作', link: '/dianshiju/netflix-top-10.md' },
-			{ text: '一个账号看遍全球！如何解锁Netflix各国限定神剧？', link: '/dianshiju/netflixkanjutuijian.md' },
+			{ text: 'Netflix 10部不容错过的神作', link: '/dianshiju/netflix-top-10' },
+			{ text: '一个账号看遍全球！如何解锁Netflix各国限定神剧？', link: '/dianshiju/netflixkanjutuijian' },
 		]}
 	  ]
 	}, 
@@ -76,15 +72,45 @@ export default defineConfig({
     ],
 	outlineTitle: '导读'
   },
-  transformHtml: (_, id, { pageData }) => {
-    if (id.endsWith('.html') && !id.endsWith('404.html')) {
-      links.push({ url: pageData.relativePath.replace(/((^|\/)index)?\.md$/, '$2'), lastmod: pageData.lastUpdated })
+  
+  // =====================【这次真的对了】======================
+  // 我们不再信任 pageData.url，而是自己根据 relativePath 构建 URL
+  transformPageData(pageData) {
+    if (pageData.relativePath.endsWith('.md') && pageData.relativePath !== '404.md') {
+      // 1. 从 'bidu-tuijian.md' 变为 'bidu-tuijian'
+      // 2. 从 'dianshiju/index.md' 变为 'dianshiju/index'
+      const urlPath = pageData.relativePath.replace(/\.md$/, '');
+      
+      // 3. 处理 index 文件：
+      //    'dianshiju/index' -> 'dianshiju/'
+      //    'index' -> ''
+      const finalPath = urlPath.endsWith('/index') 
+        ? urlPath.slice(0, -5) // 'dianshiju/index' -> 'dianshiju/'
+        : (urlPath === 'index' ? '' : urlPath); // 'index' -> ''
+        
+      links.push({
+        // 4. 加上域名和开头的斜杠
+        url: `/${finalPath}`,
+        lastmod: pageData.lastUpdated,
+      });
     }
   },
+
   buildEnd: async ({ outDir }) => {
-    const sitemapStream = new SitemapStream({ hostname })
-    const sitemap = await streamToPromise(sitemapStream.end(links))
-    writeFileSync(path.resolve(outDir, 'sitemap.xml'), sitemap.toString())
-    console.log('✅ Sitemap generated!')
+    console.log(`Found ${links.length} links to generate sitemap.`);
+    
+    if (links.length === 0) {
+      console.warn('⚠️ No links found, skipping sitemap generation.');
+      return;
+    }
+
+    const sitemapStream = new SitemapStream({ hostname });
+    const sitemap = await streamToPromise(
+      Readable.from(links).pipe(sitemapStream)
+    ).then((data) => data.toString());
+    
+    writeFileSync(path.resolve(outDir, 'sitemap.xml'), sitemap);
+    console.log('✅ Sitemap generated!');
   },
+  // =========================================================
 })
