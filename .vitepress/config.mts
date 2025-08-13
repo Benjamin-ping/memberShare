@@ -58,6 +58,7 @@ export default defineConfig({
 			{ text: '如何修改合租密码', link: '/hezhumima' },
 			{ text: 'Spotify入坑完全攻略', link: '/gongnue-Spotifyjiqiao' },
 			{ text: 'Spotify隐私保护指南', link: '/gongnue-Spotifyyinsi' },
+			{ text: 'Disney+ 观看指南', link: '/Disneywitch' },
 		]},
 	  ],
 	  '/dianshiju/': [
