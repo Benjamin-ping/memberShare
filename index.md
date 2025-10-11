@@ -16,9 +16,13 @@ hero:
   # --- 修改结束 ---
 
   actions:
-    - theme: brand
+    - theme: alt
       text: 上车必读
       link: /bidu-tuijian
+    - theme: brand
+      text: 机场推荐
+      link: /jctuijian
+
     - theme: alt
       text: 发车攻略
       link: /gongnue-Spotifyjiqiao

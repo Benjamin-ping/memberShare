@@ -45,6 +45,9 @@ export default defineConfig({
     ],
     sidebar: {
 	  '/': [
+	    { text: '机场梯子推荐', items: [
+			{ text: '【2025年便宜稳定机场推荐】', link: '/jctuijian' },
+		]},
 		{ text: '上车必读', items: [
 			{ text: '【2025主流合租平台终极测评】', link: '/bidu-tuijian' },
 			{ text: '蜜糖商店到底靠不靠谱？', link: '/mets-shop-review' },
