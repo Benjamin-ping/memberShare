@@ -45,7 +45,7 @@ export default defineConfig({
     ],
     sidebar: {
 	  '/': [
-	    { text: '机场梯子推荐', items: [
+	    { text: '机场推荐', items: [
 			{ text: '【2025年便宜稳定机场推荐】', link: '/jctuijian' },
 		]},
 		{ text: '上车必读', items: [
