@@ -47,8 +47,8 @@ tags: ["机场推荐", "梯子推荐","便宜机场", "便宜梯子","IPLC", "Cl
 
 | 服务商名称 | 线路和我的点评 | 参考月费 (¥) | 试用 | 流量补充 | 我给几颗星？ |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| <a href="https://99bar.pages.dev/#/register?code=VOxMW6W0" target="_blank" rel="noopener noreferrer"><strong>99吧</strong></a> | IPLC专线+BGP中转<br>**点评**：我为啥给它排第一？**便宜大碗**，不限设备数，流量给的又多，性价比直接拉满，新手入门首选。 | ¥9.9/99G/月 | 1天1G | ✔ | ⭐⭐⭐⭐⭐ |
-| <a href="https://goflybit.pages.dev/#/register?code=ckrpv0zT" target="_blank" rel="noopener noreferrer"><strong>FlyBit</strong></a> | IPLC专线+中转<br>**点评**：这家也挺实在的，所有节点都**没有倍率**，用1G就是1G，不用算来算去。同样不限设备，很适合多台设备一起用。 | ¥12/100G/月 | 1天2G | ✔ | ⭐⭐⭐⭐⭐ |
+| <a href="https://99bar.pages.dev/#/register?code=VOxMW6W0" target="_blank" rel="noopener noreferrer"><strong>99吧</strong></a> | IPLC专线+BGP中转<br>**点评**：我为啥给它排第一？**便宜大碗**，不限设备数，流量给的又多，性价比直接拉满，新手入门首选。 | ¥12.9/99G/月 | 1天1G | ✔ | ⭐⭐⭐⭐⭐ |
+| <a href="https://goflybit.pages.dev/#/register?code=ckrpv0zT" target="_blank" rel="noopener noreferrer"><strong>FlyBit</strong></a> | IPLC专线+中转<br>**点评**：这家也挺实在的，所有节点都**没有倍率**，用1G就是1G，不用算来算去。同样不限设备，很适合多台设备一起用。 | ¥15/128G/月 | 1天2G | ✔ | ⭐⭐⭐⭐⭐ |
 | <a href="https://1.sslar.one#/register?code=elmrxbSJ" target="_blank" rel="noopener noreferrer"><strong>Sslar</strong></a> | IPLC专线<br>**点评**：他们家有个**自己的客户端**，对小白挺友好。售后做得不错，解锁4K/8K视频很流畅，适合影音党。 | ¥15/100G/月 | 3小时2G | ❌ | ⭐⭐⭐⭐ |
 | <a href="https://linksys360gna.xmfvipaff01.cc/register?aff=xAryDn6F" target="_blank" rel="noopener noreferrer"><strong>小蜜蜂</strong></a> | IPLC专线<br>**点评**：如果你想长期用，他家年付套餐挺划算的，折下来一个月没多少钱。但还是那句话，**新手先月付试试**。 | ¥20/120G/月 | 无 | ✔ | ⭐⭐⭐ |
 | <a href="https://ivt01.qytaff.cc/register?aff=EZEbaMhj" target="_blank" rel="noopener noreferrer"><strong>青云梯</strong></a> | IPLC专线<br>**点评**：开了好几年的老牌子了，没出过啥大问题，口碑还行，节点数量也多。 | ¥25/150G/月 | 无 | ❌ | ⭐⭐⭐ |
